@@ -64,7 +64,7 @@
     </section>
 
     <section class="modal-frame">
-    <!-- モーダルウィンドウ -->
+    {{-- モーダルウィンドウ --}}
         <div id="modal" class="modal">
             <div class="modal-content">
                 <span class="modal-close" onclick="closeModal()">&times;</span>
