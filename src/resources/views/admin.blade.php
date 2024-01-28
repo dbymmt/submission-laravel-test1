@@ -52,15 +52,69 @@
                 <th class="admin-result-body__head-elm" colspan="2">お問い合わせ種類</th>
             </tr>
             <tr id="admin-result-body__data1" data-tr="1">
-                <td>名前 名前</td><td>男性</td><td>aaa@aaaaaa</td><td>商品の交換について</td><td><button onClick="testClick(1)">詳細</button></td>
+                <td>名前 名前</td><td>男性</td><td>aaa@aaaaaa</td><td>商品の交換について</td><td><button onClick="openModal(1)">詳細</button></td>
             </tr>
             <tr id="admin-result-body__data2" data-tr="2">    
-                <td>名前 名前</td><td>男性</td><td>aaa@aaaaaa</td><td>商品の交換について</td><td><button onClick="testClick(2)">詳細</button></td>
+                <td>名前 名前</td><td>男性</td><td>aaa@aaaaaa</td><td>商品の交換について</td><td><button onClick="openModal(2)">詳細</button></td>
             </tr>
             <tr id="admin-result-body__data1" data-tr="3">
-                <td>名前 名前</td><td>男性</td><td>aaa@aaaaaa</td><td>商品の交換について</td><td><button onClick="testClick(3)">詳細</button></td>
+                <td>名前 名前</td><td>男性</td><td>aaa@aaaaaa</td><td>商品の交換について</td><td><button onClick="openModal(3)">詳細</button></td>
             </tr>
         </table>
+    </section>
+
+    <section class="modal-frame">
+    <!-- モーダルウィンドウ -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="modal-close" onclick="closeModal()">&times;</span>
+                <div id="modal-content">
+                    <table class="modal-content__table">
+                        <tr id="modal-content__table-id">
+                            <th>テスト</th>
+                            <td></td>
+                        </tr>
+                        <tr class="modal-content__table-name">
+                            <th>お名前</th>
+                            <td>あああ</td>
+                        </tr>
+                        <tr class="modal-content__table-gender">
+                            <th>性別</th>
+                            <td>男性</td>
+                        </tr>
+                        <tr class="modal-content__table-email">
+                            <th>メールアドレス</th>
+                            <td>aaa@aaa.com</td>
+                        </tr>
+                        <tr class="modal-content__table-address">
+                            <th>住所</th>
+                            <td>いいい</td>
+                        </tr>
+                        <tr class="modal-content__table-building">
+                            <th>建物名</th>
+                            <td>ええええええええええええええええええええええ</td>
+                        </tr>
+                        <tr class="modal-content__table-category">
+                            <th>お問い合わせの種類</th>
+                            <td>ああああああああ</td>
+                        </tr>
+                        <tr class="modal-content__table-detail">
+                            <th>お問い合わせ内容</th>
+                            <td>
+                                あいうえおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおお
+                            </td>
+                        </tr>
+                        <tr class="modal-content__table-button">
+                            <td colspan="2">
+                                <form action="">
+                                    <input type="submit" value="削除">
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
     </section>
 </article>
 
