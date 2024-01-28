@@ -16,12 +16,12 @@ class ContactFactory extends Factory
      */
     public function definition()
     {
-        // $categories = Category::all();
+        $categories = Category::all();
         $phone_no_before = $this->faker->phoneNumber();
 
         return [
             //
-            // 'category_id' => $categories->random()->id,
+            'category_id' => $categories->random()->id,
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
             'gender' => $this->faker->numberBetween(1,3),

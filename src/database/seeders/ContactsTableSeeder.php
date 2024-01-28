@@ -15,11 +15,11 @@ class ContactsTableSeeder extends Seeder
      */
     public function run()
     {
-        $categories = Category::all();
+        // $categories = Category::all();
         
-        Contact::factory(35)->create([
-            'category_id' => $categories->random()->id
-        ]);
-        // Contact::factory(5)->create();
+        // Contact::factory(35)->create([
+        //     'category_id' => $categories->random()->id
+        // ]);
+        Contact::factory(5)->create();
     }
 }
