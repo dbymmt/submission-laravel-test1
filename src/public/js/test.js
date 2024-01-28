@@ -6,9 +6,28 @@ function openModal(index) {
 
     modal.style.display = "block";
 
-    var testID = document.getElementById('modal-content__table-id').getElementsByTagName('td')[0];
-    console.log(testID);
-    testID.innerText = index;
+    let modal_name = document.querySelector('.modal-content__table-name td');
+    let modal_gender = document.querySelector('.modal-content__table-gender td');
+    let modal_email = document.querySelector('.modal-content__table-email td');
+    let modal_address = document.querySelector('.modal-content__table-address td');
+    let modal_building = document.querySelector('.modal-content__table-building td');
+    let modal_category = document.querySelector('.modal-content__table-category td');
+    let modal_detail = document.querySelector('.modal-content__table-detail td');
+
+
+
+
+
+
+    
+    // modal_name.innerText = rowData[0].innerText;
+    // modal_gender.innerText = rowData[1].innerText;
+    // modal_email.innerText = rowData[2].innerText;
+    // modal_address.innerText = rowData[3].innerText;
+    // modal_building.innerText = rowData[4].innerText;
+    // modal_category.innerText = rowData[5].innerText;
+
+
 
     // モーダルウィンドウにデータをセット
     // modalContent.innerHTML = "<strong>お名前:</strong> " + rowData[0].innerText + "<br>" +
