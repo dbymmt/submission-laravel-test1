@@ -51,15 +51,21 @@
                 <th class="admin-result-body__head-elm">メールアドレス</th>
                 <th class="admin-result-body__head-elm" colspan="2">お問い合わせ種類</th>
             </tr>
-            <tr id="admin-result-body__data1" data-tr="1">
-                <td>ああ いい</td><td>男性</td><td>aaa@aaaaaa</td><td>商品の交換について</td><td><button onClick="openModal(1)">詳細</button></td>
-            </tr>
-            <tr id="admin-result-body__data2" data-tr="2">    
+            @foreach($results as $result)
+                <tr id="admin-result-body__data1" data-tr="{{ $result->id }}">
+                    <td>{{$result->first_name}} {{$result->last_name}}</td>
+                    <td>{{$result->gender === 1 ? '男性' : ($result->gender === 2 ? '女性' : 'その他')}}</td>
+                    <td>{{$result->email}}</td>
+                    <td>{{$result->category === 1 ? '商品のお届けについて' : ($result->category === 2 ? '商品の交換について' : ($result->category === 3 ? '商品トラブル' : ($result->category === 4 ? 'ショップへのお問い合わせ' : 'その他')))}}</td>
+                    <td><button onClick="openModal({{$result->id}})">詳細</button></td>
+                </tr>
+            @endforeach
+            {{-- <tr id="admin-result-body__data2" data-tr="2">    
                 <td>うう ええ</td><td>女性</td><td>bbb@bbbbbb</td><td>商品の交換について</td><td><button onClick="openModal(2)">詳細</button></td>
             </tr>
             <tr id="admin-result-body__data1" data-tr="3">
                 <td>おお かか</td><td>男性</td><td>ccc@cccccc</td><td>商品の交換について</td><td><button onClick="openModal(3)">詳細</button></td>
-            </tr>
+            </tr> --}}
         </table>
     </section>
 
