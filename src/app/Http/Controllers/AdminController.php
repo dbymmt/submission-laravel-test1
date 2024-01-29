@@ -11,7 +11,51 @@ use App\Http\Requests\ContactRequest;
 class AdminController extends Controller
 {
     //
-    public function index(Request $request){
-        return view('admin');
+    public function AdminIndex(Request $request)
+    {
+        if($request->isMethod('post')){
+
+            $query = Contact::query();
+
+            if ($request->filled('keyword')) {
+                $keyword = $request->input('keyword');
+                $query->where(function ($query) use ($keyword) {
+                    $query->where('first_name', 'like', "%$keyword%")
+                        ->orWhere('last_name', 'like', "%$keyword%")
+                        ->orWhere('email', 'like', "%$keyword%");
+                });
+            }
+
+            if ($request->filled('gender')) {
+                $query->where('gender', $request->input('gender'));
+            }
+
+            if ($request->filled('category_id')) {
+                $query->where('category_id', $request->input('category_id'));
+            }
+
+            if ($request->filled('date')) {
+                $query->whereDate('created_at', $request->input('date'));
+            }
+
+            $results = $query->paginate(7);
+
+            return view('admin', ['results' => $results]);
+        }
+        else{
+            $results = Contact::Paginate(7);
+            return view('admin', ['results' => $results]);
+        }
+    }
+
+    public function RetJSON($index)
+    {
+        $result = Contact::find($index);
+
+        if (!$result) {
+            return response()->json(['error' => 'データが見つかりませんでした'], 404);
+        }
+
+        return response()->json($result);
     }
 }

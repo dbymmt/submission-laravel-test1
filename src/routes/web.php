@@ -14,11 +14,23 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', [AdminController::class, 'index']);
+// TODO
+// admin系
+// 　モーダルの削除ボタン
+// 　ログイン機能
+// 　　のview×2
+// フォーム系
+// 　view×3
+// 　フォームリクエスト
+// 　Contactsテーブルへの追加機能
 
-Route::get('/', function(){
-    return view('admin');
-});
+Route::get('/admin', [AdminController::class, 'AdminIndex']);
+Route::post('/admin', [AdminController::class, 'AdminIndex']);
+Route::get('/admin/contact/{index}', [AdminController::class, 'RetJSON']);
+
+// Route::get('/', function(){
+//     return view('admin');
+// });
 
 // Route::get('/', function () {
 //     return view('welcome');

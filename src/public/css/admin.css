@@ -1,3 +1,19 @@
+.admin-search-menu-sub {
+    display: flex;
+    /* justify-content: space-between; */
+}
+
+/* ページネーションのスタイル */
+ul.pagination {
+    display: flex;
+    list-style: none;
+}
+
+svg.w-5.h-5 {
+    width: 30px;
+    height: 30px;
+}
+
 /* モーダルウィンドウのスタイル */
 .modal {
     display: none;
