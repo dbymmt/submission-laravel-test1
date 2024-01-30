@@ -16,25 +16,25 @@
         <form action="/admin" method="POST">
         @csrf
             <div class="admin-search-menu-main">
-                <input type="text" name="keyword">
-                <select name="gender">
-                    <option value="">性別</option>
+                <input type="text" name="keyword" value="{{ old('keyword')}} ">
+                <select name="gender" value="{{ old('gender') }}">
+                    <option value="" selected>性別</option>
                     <option value="1">男性</option>
                     <option value="2">女性</option>
                     <option value="3">その他</option>
                 </select>
-                <select name="category_id">
-                    <option value="">お問い合わせの種類</option>
+                <select name="category_id" value="{{ old('category_id') }}">
+                    <option value="" selected>お問い合わせの種類</option>
                     <option value="1">商品のお届けについて</option>
                     <option value="2">商品の交換について</option>
                     <option value="3">商品トラブル</option>
                     <option value="4">ショップへのお問い合わせ</option>
                     <option value="5">その他</option>
                 </select>
-                <input type="date" name="date">
+                <input type="date" name="date" value="{{ old('date') }}">
                 <input type="submit" value="検索">
                 {{-- TODO リセット機能 --}}
-                <button>リセット</button>
+                <button id="admin-search-menu-reset">リセット</button>
             </div>
         </form>
         <div class="admin-search-menu-sub">
@@ -72,12 +72,6 @@
                     </tr>
                 @endforeach
             @endif
-            {{-- <tr id="admin-result-body__data2" data-tr="2">    
-                <td>うう ええ</td><td>女性</td><td>bbb@bbbbbb</td><td>商品の交換について</td><td><button onClick="openModal(2)">詳細</button></td>
-            </tr>
-            <tr id="admin-result-body__data1" data-tr="3">
-                <td>おお かか</td><td>男性</td><td>ccc@cccccc</td><td>商品の交換について</td><td><button onClick="openModal(3)">詳細</button></td>
-            </tr> --}}
         </table>
     </section>
 
@@ -94,39 +88,37 @@
                         </tr>
                         <tr class="modal-content__table-name">
                             <th>お名前</th>
-                            <td>あああ</td>
+                            <td></td>
                         </tr>
                         <tr class="modal-content__table-gender">
                             <th>性別</th>
-                            <td>男性</td>
+                            <td></td>
                         </tr>
                         <tr class="modal-content__table-email">
                             <th>メールアドレス</th>
-                            <td>aaa@aaa.com</td>
+                            <td></td>
                         </tr>
                         <tr class="modal-content__table-address">
                             <th>住所</th>
-                            <td>いいい</td>
+                            <td></td>
                         </tr>
                         <tr class="modal-content__table-building">
                             <th>建物名</th>
-                            <td>ええええええええええええええええええええええ</td>
+                            <td></td>
                         </tr>
                         <tr class="modal-content__table-category">
                             <th>お問い合わせの種類</th>
-                            <td>ああああああああ</td>
+                            <td></td>
                         </tr>
                         <tr class="modal-content__table-detail">
                             <th>お問い合わせ内容</th>
                             <td>
-                                あいうえおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおおお
+                                
                             </td>
                         </tr>
                         <tr class="modal-content__table-button">
                             <td colspan="2">
-                                <form action="">
-                                    <input type="submit" value="削除">
-                                </form>
+                                <button id="modal-content__table-button-column-delete">削除</button>
                             </td>
                         </tr>
                     </table>

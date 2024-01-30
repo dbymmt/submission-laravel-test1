@@ -22,13 +22,31 @@ function openModal(index) {
                         data.category_id == 3 ? '商品トラブル' :
                             data.category_id == 4 ? 'ショップへの問い合わせ' : 'その他';
             modalContent.querySelector('.modal-content__table-detail td').innerText = data.detail;
+
+            var delButton = document.getElementById('modal-content__table-button-column-delete');
+
+            delButton.addEventListener('click', function () {
+                // event.preventDefault();
+                if (window.confirm('ID' + index + 'を削除しますか？')) {
+                    axios.delete('/admin/contact/' + index)
+                        .then(function (response) {
+                            // ページ再読み込み
+                            window.location.reload();
+                        })
+                        .catch(function (error) {
+                            console.error('削除時にエラーが発生しました', error);
+                        });
+                }
+            })
+
+
         })
         .catch(function (error) {
             console.error('エラーが発生しました', error);
         });
 }
 
-// ×閉じ
+// ×閉じボタン
 function closeModal() {
     var modal = document.getElementById('modal');
     modal.style.display = "none";

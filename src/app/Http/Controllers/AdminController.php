@@ -58,4 +58,17 @@ class AdminController extends Controller
 
         return response()->json($result);
     }
+
+
+    public function Destroy($index)
+    {
+        $contact = Contact::find($index);
+        if (!$contact) {
+            return response()->json(['message' => '指定されたデータが見つかりませんでした'], 404);
+        }
+
+        $contact->delete();
+        return response()->json(['message' => 'データが削除されました'], 200);
+    }
 }
+
