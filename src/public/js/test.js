@@ -59,4 +59,23 @@ window.onclick = function (event) {
     }
 }
 
+// リセットボタン
+var rst = document.getElementById('admin-search-menu-reset')
+rst.addEventListener('click', function () {
+
+    // フォームを取得してリセット
+    var form = document.querySelector('.admin-search-menu-main form');
+
+    // テキストボックスの値を空にする
+    var textInputs = form.querySelectorAll('input[type="text"], input[type="date"]');
+    textInputs.forEach(function (input) {
+        input.value = '';
+    });
+
+    // セレクトボックスの選択を空にする
+    var selectInputs = form.querySelectorAll('select');
+    selectInputs.forEach(function (select) {
+        select.selectedIndex = 0; // 最初のオプションを選択
+    });
+});
 

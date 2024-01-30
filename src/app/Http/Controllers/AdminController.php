@@ -13,7 +13,8 @@ class AdminController extends Controller
     //
     public function AdminIndex(Request $request)
     {
-        if($request->isMethod('post')){
+        // if($request->isMethod('post')){
+        if($request->query()){
 
             $query = Contact::query();
 
@@ -38,7 +39,7 @@ class AdminController extends Controller
                 $query->whereDate('created_at', $request->input('date'));
             }
 
-            $results = $query->paginate(7);
+            $results = $query->paginate(7)->withQueryString();;
 
             return view('admin', ['results' => $results]);
         }

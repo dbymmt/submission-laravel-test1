@@ -16,7 +16,6 @@ use App\Http\Controllers\AdminController;
 
 // TODO
 // admin系
-//   リセット
 // 　ログイン機能
 // 　　のview×2
 // フォーム系
@@ -25,7 +24,7 @@ use App\Http\Controllers\AdminController;
 // 　Contactsテーブルへの追加機能
 
 Route::get('/admin', [AdminController::class, 'AdminIndex']);
-Route::post('/admin', [AdminController::class, 'AdminIndex']);
+// Route::post('/admin', [AdminController::class, 'AdminIndex']);
 Route::get('/admin/contact/{index}', [AdminController::class, 'RetJSON']);
 Route::delete('/admin/contact/{index}', [AdminController::class, 'Destroy']);
 

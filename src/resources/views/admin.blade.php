@@ -13,36 +13,36 @@
     </section>
     
     <section class="admin-search-menu">
-        <form action="/admin" method="POST">
-        @csrf
-            <div class="admin-search-menu-main">
-                <input type="text" name="keyword" value="{{ old('keyword')}} ">
-                <select name="gender" value="{{ old('gender') }}">
-                    <option value="" selected>性別</option>
-                    <option value="1">男性</option>
-                    <option value="2">女性</option>
-                    <option value="3">その他</option>
+        <div class="admin-search-menu-main">
+            <form action="/admin" method="GET">
+            @csrf
+                <input type="text" name="keyword" value="{{ request()->input('keyword') }} ">
+                <select name="gender">
+                    <option value="" {{ request()->input('gender') == "" ? 'selected' : '' }}>性別</option>
+                    <option value="1" {{ request()->input('gender') == "1" ? 'selected' : '' }}>男性</option>
+                    <option value="2" {{ request()->input('gender') == "2" ? 'selected' : '' }}>女性</option>
+                    <option value="3" {{ request()->input('gender') == "3" ? 'selected' : '' }}>その他</option>
                 </select>
-                <select name="category_id" value="{{ old('category_id') }}">
-                    <option value="" selected>お問い合わせの種類</option>
-                    <option value="1">商品のお届けについて</option>
-                    <option value="2">商品の交換について</option>
-                    <option value="3">商品トラブル</option>
-                    <option value="4">ショップへのお問い合わせ</option>
-                    <option value="5">その他</option>
+                <select name="category_id">
+                    <option value="" {{ request()->input('category_id') == "" ? 'selected' : '' }}>お問い合わせの種類</option>
+                    <option value="1" {{ request()->input('category_id') == "1" ? 'selected' : '' }}>商品のお届けについて</option>
+                    <option value="2" {{ request()->input('category_id') == "2" ? 'selected' : '' }}>商品の交換について</option>
+                    <option value="3" {{ request()->input('category_id') == "3" ? 'selected' : '' }}>商品トラブル</option>
+                    <option value="4" {{ request()->input('category_id') == "4" ? 'selected' : '' }}>ショップへのお問い合わせ</option>
+                    <option value="5" {{ request()->input('category_id') == "5" ? 'selected' : '' }}>その他</option>
                 </select>
-                <input type="date" name="date" value="{{ old('date') }}">
+                <input type="date" name="date" value="{{ request()->input('date') }}">
                 <input type="submit" value="検索">
                 {{-- TODO リセット機能 --}}
                 <button id="admin-search-menu-reset">リセット</button>
-            </div>
-        </form>
+            </form>
+        </div>
         <div class="admin-search-menu-sub">
             {{-- TODO CSV化機能 --}}
             <form>
                 <button>エクスポート</button>
             </form>
-            {{ $results->links('vendor.pagination.simple-default') }}
+            {{ $results->appends(request()->query())->links('vendor.pagination.simple-default') }}
         </div>
     </section>
     <section class="admin-result">
