@@ -16,14 +16,23 @@
 <body>
   <header class="header">
     <div class="header__inner">
-      <a class="header__logo" href="/">
+      <a class="header__logo" href="#">
           FashonablyLate
       </a>
       <nav class="header-nav__login">
-      @if(true)
-          <a class="header-nav__login-button" href="#">
-            login
-          </a>
+      @if(Auth::check())
+        <form action="/logout" method="post">
+          @csrf
+            <input type="submit" value="logout">
+        </form>
+      @elseif(Request::is('login'))
+        <a class="header-nav__login-button" href="/register">
+          register
+        </a>
+      @else
+        <a class="header-nav__login-button" href="/login">
+          login
+        </a>
       @endif
       </nav>
     </div>

@@ -17,16 +17,26 @@ use App\Http\Controllers\AdminController;
 // TODO
 // admin系
 // 　ログイン機能
-// 　　のview×2
 // フォーム系
 // 　view×3
 // 　フォームリクエスト
 // 　Contactsテーブルへの追加機能
 
-Route::get('/admin', [AdminController::class, 'AdminIndex']);
-// Route::post('/admin', [AdminController::class, 'AdminIndex']);
-Route::get('/admin/contact/{index}', [AdminController::class, 'RetJSON']);
-Route::delete('/admin/contact/{index}', [AdminController::class, 'Destroy']);
+// 仮
+
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/admin', [AdminController::class, 'AdminIndex']);
+    Route::get('/admin/contact/{index}', [AdminController::class, 'RetJSON']);
+    Route::delete('/admin/contact/{index}', [AdminController::class, 'Destroy']);
+});
+
+// Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+
+// Route::get('/admin', [AdminController::class, 'AdminIndex']);
+// Route::get('/admin/contact/{index}', [AdminController::class, 'RetJSON']);
+// Route::delete('/admin/contact/{index}', [AdminController::class, 'Destroy']);
 
 // Route::get('/', function(){
 //     return view('admin');
