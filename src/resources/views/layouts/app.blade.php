@@ -29,10 +29,12 @@
         <a class="header-nav__login-button" href="/register">
           register
         </a>
-      @else
+      @elseif(Request::is('register'))
         <a class="header-nav__login-button" href="/login">
           login
         </a>
+      @else
+        <p></p>
       @endif
       </nav>
     </div>

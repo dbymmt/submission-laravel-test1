@@ -16,7 +16,7 @@
             <label for="register-body__your-mail" class="register-body__your-mail-label">メールアドレス</label>
             <input type="text" id="register-body__your-mail" name="email" value="{{old('email')}}">
             <label for="register-body__your-password" class="register-body__your-password-label">パスワード</label>
-            <input type="text" id="register-body__your-password" name="password" value="{{old('password')}}">
+            <input type="password" id="register-body__your-password" name="password" value="{{old('password')}}">
             <input type="submit" value="登録">
         </form>
     </div>

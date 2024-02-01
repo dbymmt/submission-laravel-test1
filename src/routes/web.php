@@ -16,15 +16,19 @@ use App\Http\Controllers\AdminController;
 
 // TODO
 // admin系
-// 　ログイン機能
+
 // フォーム系
 // 　view×3
+//   電話番号の成型その他のためにmiddlewareをかます必要があるな・・・
 // 　フォームリクエスト
 // 　Contactsテーブルへの追加機能
 
 // 仮
 
 
+Route::get('/', function(){
+    return view('index');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'AdminIndex']);
