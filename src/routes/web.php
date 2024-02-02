@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,20 +16,13 @@ use App\Http\Controllers\AdminController;
 */
 
 // TODO
+// 全体
+//   cssいじりだよなあ
 // admin系
-
+//   csv化なあ・・・
 // フォーム系
-// 　view×3
-//   電話番号の成型その他のためにmiddlewareをかます必要があるな・・・
-// 　フォームリクエスト
-// 　Contactsテーブルへの追加機能
+// 　tel成型とかほんとはmiddlewareなんだよな・・・
 
-// 仮
-
-
-Route::get('/', function(){
-    return view('index');
-});
 
 Route::middleware('auth')->group(function () {
     Route::get('/admin', [AdminController::class, 'AdminIndex']);
@@ -36,16 +30,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/admin/contact/{index}', [AdminController::class, 'Destroy']);
 });
 
-// Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-
-// Route::get('/admin', [AdminController::class, 'AdminIndex']);
-// Route::get('/admin/contact/{index}', [AdminController::class, 'RetJSON']);
-// Route::delete('/admin/contact/{index}', [AdminController::class, 'Destroy']);
-
-// Route::get('/', function(){
-//     return view('admin');
-// });
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', [ContactController::class, 'index']);
+Route::post('/', [ContactController::class, 'confirm']);
+Route::post('/create', [ContactController::class, 'create']);
