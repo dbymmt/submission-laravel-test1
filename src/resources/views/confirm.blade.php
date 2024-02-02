@@ -10,10 +10,9 @@
 
     <form action="/create" method="POST">
     @csrf
-        <dt class="confirm-body_your-first-name-label" >お名前</dt>
-        <dd class="confirm-body_your-first-name">{{ $data['first_name'] }}</dd>
+        <dt class="confirm-body_your-name-label" >お名前</dt>
+        <dd class="confirm-body_your-first-name">{{ $data['first_name']." ".$data['last_name'] }}</dd>
         <input type="hidden" name="first_name" value="{{ $data['first_name'] }}">
-        <dd class="confirm-body_your-last-name"> {{ $data['last_name'] }}</dd>
         <input type="hidden" name="last_name" value="{{ $data['last_name'] }}">
 
         <dt class="confirm-body_your-gender-label" >性別</dt>
@@ -29,11 +28,9 @@
         <input type="hidden" name="email" value="{{ $data['email'] }}">
 
         <dt class="confirm-body_your-tel-label" >電話番号</dt>
-        <dd class="confirm-body_your-tel-first">{{$data['tel1']}}</dd>
+        <dd class="confirm-body_your-tel">{{$data['tel1'].$data['tel2'].$data['tel3']}}</dd>
         <input type="hidden"  name="tel1" value="{{ $data['tel1'] }}">
-        <dd class="confirm-body_your-tel-second">{{$data['tel2']}}</dd>
         <input type="hidden"  name="tel2" value="{{ $data['tel2'] }}">
-        <dd class="confirm-body_your-tel-third">{{$data['tel3']}}</dd>
         <input type="hidden"  name="tel3" value="{{ $data['tel3'] }}">
 
         <dt class="confirm-body_your-address-label">住所</dt>
